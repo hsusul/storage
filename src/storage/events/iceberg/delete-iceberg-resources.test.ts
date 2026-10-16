@@ -128,7 +128,7 @@ function expectIcebergCleanup({ multitenant }: { multitenant: boolean }) {
     tenantId: 'tenant-a',
   })
   expect(restCatalog.dropTable).toHaveBeenCalledWith({
-    namespace: 'namespace-1',
+    namespace: 'tenant-a_ns_1',
     table: 'table-1',
     purgeRequested: true,
     warehouse: 'shard-key-1',
@@ -145,7 +145,7 @@ function expectIcebergCleanup({ multitenant }: { multitenant: boolean }) {
     pageSize: 1,
   })
   expect(restCatalog.dropNamespace).toHaveBeenCalledWith({
-    namespace: 'namespace-1',
+    namespace: 'tenant-a_ns_1',
     warehouse: 'shard-key-1',
   })
   expect(store.dropNamespace).toHaveBeenCalledWith({
